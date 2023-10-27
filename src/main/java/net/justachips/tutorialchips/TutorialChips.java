@@ -2,6 +2,7 @@ package net.justachips.tutorialchips;
 
 import com.mojang.logging.LogUtils;
 
+import net.justachips.tutorialchips.block.ModBlocks;
 import net.justachips.tutorialchips.item.ModCreativeModTabs;
 import net.justachips.tutorialchips.item.ModItems;
 import net.minecraft.client.Minecraft;
@@ -50,6 +51,7 @@ public class TutorialChips
         ModCreativeModTabs.register(modEventBus); //ajjout de mon tab perso
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         
         modEventBus.addListener(this::commonSetup);

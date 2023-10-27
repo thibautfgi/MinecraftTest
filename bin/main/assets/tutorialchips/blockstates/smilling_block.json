@@ -1,0 +1,7 @@
+{
+    "variants": { 
+        "": {
+            "model": "tutorialchips:block/smilling_block"
+        }
+    }
+}

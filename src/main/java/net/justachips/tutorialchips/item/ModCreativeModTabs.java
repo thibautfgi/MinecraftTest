@@ -1,6 +1,7 @@
 package net.justachips.tutorialchips.item;
 
 import net.justachips.tutorialchips.TutorialChips;
+import net.justachips.tutorialchips.block.ModBlocks;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -24,6 +25,8 @@ public class ModCreativeModTabs {
                 pOutput.accept(ModItems.CHIPS.get()); // get seulement pr les customs items
 
                 pOutput.accept(Items.DIAMOND); //AJOUT DUN DIAMOND VANILLIA
+
+                pOutput.accept(ModBlocks.SMILLING_BLOCK.get());
             })
             .build());//CONSTUIT
 
