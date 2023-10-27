@@ -2,6 +2,7 @@ package net.justachips.tutorialchips;
 
 import com.mojang.logging.LogUtils;
 
+import net.justachips.tutorialchips.item.ModCreativeModTabs;
 import net.justachips.tutorialchips.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -46,6 +47,8 @@ public class TutorialChips
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModTabs.register(modEventBus); //ajjout de mon tab perso
+
         ModItems.register(modEventBus);
 
         
@@ -65,6 +68,7 @@ public class TutorialChips
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.CHIPS);
+            event.accept(ModItems.SAPPHIRE);
         }
     }
 
