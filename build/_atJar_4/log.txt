@@ -1,7 +1,7 @@
-Java Launcher: C:\Users\33679\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin\java.exe
-Arguments: '--inJar, C:\Users\33679\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-injected.jar, --outJar, C:\Users\33679\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1\forge-1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1.jar, --logFile, accesstransform.log, --atFile, C:\Users\33679\Desktop\Projet\Ydays\Minecraft\MinecraftTest\build\_atJar_4\parent_at.cfg'
+Java Launcher: C:\Users\tibof\.gradle\jdks\eclipse_adoptium-17-amd64-windows\jdk-17.0.8.1+1\bin\java.exe
+Arguments: '--inJar, C:\Users\tibof\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-injected.jar, --outJar, C:\Users\tibof\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1\forge-1.20.1-47.2.0_mapped_parchment_2023.09.03-1.20.1.jar, --logFile, accesstransform.log, --atFile, C:\Users\tibof\Desktop\Projet\Ydays\Minecraft\MinecraftTest\build\_atJar_4\parent_at.cfg'
 Classpath:
- - C:\Users\33679\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\8.0.7\accesstransformers-8.0.7-fatjar.jar
-Working directory: C:\Users\33679\Desktop\Projet\Ydays\Minecraft\MinecraftTest\build\_atJar_4
+ - C:\Users\tibof\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\8.0.7\accesstransformers-8.0.7-fatjar.jar
+Working directory: C:\Users\tibof\Desktop\Projet\Ydays\Minecraft\MinecraftTest\build\_atJar_4
 Main class: net.minecraftforge.accesstransformer.TransformerProcessor
 ====================================

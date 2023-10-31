@@ -21,6 +21,9 @@ public class ModBlocks {
         DeferredRegister.create(ForgeRegistries.BLOCKS, TutorialChips.MOD_ID);
 
 
+    public static final RegistryObject<Block> CHIPS_BLOCK = registerBlock("chips_block",  //enregistre le block
+    () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.GLASS)));
+
     public static final RegistryObject<Block> SMILLING_BLOCK = registerBlock("smilling_block",  //enregistre le block
     () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BAMBOO)));
 

@@ -25,7 +25,7 @@ public class ModCreativeModTabs {
                 pOutput.accept(ModItems.CHIPS.get()); // get seulement pr les customs items
 
                 pOutput.accept(Items.DIAMOND); //AJOUT DUN DIAMOND VANILLIA
-
+                pOutput.accept(ModBlocks.CHIPS_BLOCK.get());
                 pOutput.accept(ModBlocks.SMILLING_BLOCK.get());
             })
             .build());//CONSTUIT

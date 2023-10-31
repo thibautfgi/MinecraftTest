@@ -1,18 +1,18 @@
-Java Launcher: C:\Users\33679\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin\java.exe
-Arguments: '--clean, C:\Users\33679\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\joined\1.20.1-20230612.114412\joined-1.20.1-20230612.114412-srg.jar, --output, C:\Users\33679\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatched.jar, --apply, C:\Users\33679\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatches.lzma'
+Java Launcher: C:\Users\tibof\.gradle\jdks\eclipse_adoptium-17-amd64-windows\jdk-17.0.8.1+1\bin\java.exe
+Arguments: '--clean, C:\Users\tibof\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\joined\1.20.1-20230612.114412\joined-1.20.1-20230612.114412-srg.jar, --output, C:\Users\tibof\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatched.jar, --apply, C:\Users\tibof\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatches.lzma'
 Classpath:
- - C:\Users\33679\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\binarypatcher\1.1.1\binarypatcher-1.1.1-fatjar.jar
-Working directory: C:\Users\33679\Desktop\Projet\Ydays\Minecraft\MinecraftTest\build\_applyBinpatches_2
+ - C:\Users\tibof\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\binarypatcher\1.1.1\binarypatcher-1.1.1-fatjar.jar
+Working directory: C:\Users\tibof\Desktop\Projet\Ydays\Minecraft\MinecraftTest\build\_applyBinpatches_2
 Main class: net.minecraftforge.binarypatcher.ConsoleTool
 ====================================
 Applying: 
-  Clean:     C:\Users\33679\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\joined\1.20.1-20230612.114412\joined-1.20.1-20230612.114412-srg.jar
-  Output:    C:\Users\33679\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatched.jar
+  Clean:     C:\Users\tibof\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\joined\1.20.1-20230612.114412\joined-1.20.1-20230612.114412-srg.jar
+  Output:    C:\Users\tibof\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatched.jar
   KeepData:  false
   Unpatched: false
   Pack200:   false
   Legacy:    false
-Loading patches file: C:\Users\33679\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatches.lzma
+Loading patches file: C:\Users\tibof\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.20.1-47.2.0\forge-1.20.1-47.2.0-binpatches.lzma
   Reading patch com.mojang.blaze3d.pipeline.RenderTarget.binpatch
     Checksum: 151eb55a Exists: true
   Reading patch com.mojang.blaze3d.platform.GlStateManager$BlendState.binpatch
@@ -2839,7 +2839,7 @@ Loading patches file: C:\Users\33679\.gradle\caches\forge_gradle\minecraft_user_
     Checksum: 5054d5d6 Exists: true
   Reading patch net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider.binpatch
     Checksum: 33daf11e Exists: true
-Processing: C:\Users\33679\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\joined\1.20.1-20230612.114412\joined-1.20.1-20230612.114412-srg.jar
+Processing: C:\Users\tibof\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\joined\1.20.1-20230612.114412\joined-1.20.1-20230612.114412-srg.jar
   Patching com/mojang/blaze3d/pipeline/RenderTarget 1/1
   Patching com/mojang/blaze3d/platform/GlStateManager$BlendState 1/1
   Patching com/mojang/blaze3d/platform/GlStateManager$BooleanState 1/1
