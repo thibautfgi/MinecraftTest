@@ -1,0 +1,11 @@
+{
+    "type": "minecraft:smelting",
+    "category": "misc",
+    "cookingtime": 200,
+    "experience": "0.7",
+    "group": "chips",
+    "ingredient": {
+        "item": "tutorialchips:sapphire"
+    },
+    "result": "tutorialchips:chips"
+}
