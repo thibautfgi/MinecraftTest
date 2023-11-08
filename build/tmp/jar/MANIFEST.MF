@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: MinecraftTest
+Implementation-Version: 0.1-1.20.1
+Specification-Vendor: justachips
+Specification-Title: tutorialchips
+Implementation-Timestamp: 2023-11-08T09:53:02+0100
+Specification-Version: 1
+Implementation-Vendor: justachips
+

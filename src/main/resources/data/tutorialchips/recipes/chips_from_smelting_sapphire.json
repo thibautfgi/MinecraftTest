@@ -5,7 +5,7 @@
     "experience": "0.7",
     "group": "chips",
     "ingredient": {
-        "item": "tutorialchips:sapphire"
+        "item": "tutorialchips:chips_block"
     },
-    "result": "tutorialchips:chips"
+    "result":  "tutorialchips:chips"
 }
