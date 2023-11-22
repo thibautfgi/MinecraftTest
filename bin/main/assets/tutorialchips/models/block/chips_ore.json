@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+    "all": "tutorialchips:block/chips_ore"
+    }
+}

@@ -3,9 +3,11 @@ package net.justachips.tutorialchips.block;
 import net.justachips.tutorialchips.TutorialChips;
 import net.justachips.tutorialchips.item.ModItems;
 import net.minecraft.client.tutorial.Tutorial;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.item.BlockItem;
@@ -26,8 +28,11 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SMILLING_BLOCK = registerBlock("smilling_block",  //enregistre le block
     () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.BAMBOO)));
-
     
+
+    public static final RegistryObject<Block> CHIPS_ORE = registerBlock("chips_ore",
+    () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+            .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3,6)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block); //enregistre le bblock   

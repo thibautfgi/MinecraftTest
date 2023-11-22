@@ -1,6 +1,7 @@
 {
     "values": [
         "tutorialchips:chips_block",
-        "tutorialchips:smilling_block"
+        "tutorialchips:smilling_block",
+        "tutorialchips:chips_ore"
     ]
 }

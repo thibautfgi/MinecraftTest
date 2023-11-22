@@ -1,10 +1,20 @@
 {
     "item.tutorialchips.chips": "Chips",
     "item.tutorialchips.sapphire": "Sapphire",
+    "item.tutorialchips.uranium": "Uranium",
+    "item.tutorialchips.yellowthing": "Yellow Thing",
+
+    "item.tutorialchips.uranium_ball": "Uranium Ball",
 
     "block.tutorialchips.smilling_block": "Block souriant",
     "block.tutorialchips.chips_block": "Block chips",
 
+    "block.tutorialchips.chips_ore": "Chips Ore",
+
 
     "creativetab.tutorial_tab": "My personal Tab"
+
+
+
+    
 }

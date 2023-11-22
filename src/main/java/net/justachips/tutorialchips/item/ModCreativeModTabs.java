@@ -21,12 +21,19 @@ public class ModCreativeModTabs {
     () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHIPS.get())) //IMAGE DU TABS = CHIPS
             .title(Component.translatable("creativetab.tutorial_tab")) //????
             .displayItems((pParameters, pOutput) -> { //AJOUT DES ITEMS
+
                 pOutput.accept(ModItems.SAPPHIRE.get());
                 pOutput.accept(ModItems.CHIPS.get()); // get seulement pr les customs items
+                pOutput.accept(ModItems.URANIUM.get());
 
                 pOutput.accept(Items.DIAMOND); //AJOUT DUN DIAMOND VANILLIA
+
                 pOutput.accept(ModBlocks.CHIPS_BLOCK.get());
                 pOutput.accept(ModBlocks.SMILLING_BLOCK.get());
+                pOutput.accept(ModBlocks.CHIPS_ORE.get());
+
+                pOutput.accept(ModItems.YELLOWTHING.get());
+                pOutput.accept(ModItems.URANIUM_BALL.get());
             })
             .build());//CONSTUIT
 

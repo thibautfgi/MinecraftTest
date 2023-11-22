@@ -71,6 +71,7 @@ public class TutorialChips
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.CHIPS);
             event.accept(ModItems.SAPPHIRE);
+            event.accept(ModItems.URANIUM);
         }
     }
 
