@@ -11,8 +11,13 @@
 
     "block.tutorialchips.chips_ore": "Chips Ore",
 
+    "tooltip.tutorialchips.FuelItem.tooltip" : "test",
 
-    "creativetab.tutorial_tab": "My personal Tab"
+
+    "creativetab.tutorial_tab": "My personal Tab",
+
+    "key.category.tutorialchips.tutorial": "Tutorial Mod",
+    "key.tutorialchips.drink_water": "Drink Water"
 
 
 
