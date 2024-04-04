@@ -5,6 +5,7 @@ import com.mojang.logging.LogUtils;
 import net.justachips.tutorialchips.block.ModBlocks;
 import net.justachips.tutorialchips.item.ModCreativeModTabs;
 import net.justachips.tutorialchips.item.ModItems;
+import net.justachips.tutorialchips.networking.ModMessages;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -63,8 +64,11 @@ public class TutorialChips
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
-    }
+        event.enqueueWork(()-> {
+            ModMessages.register();
+            // ModVillagers.registerPOIs();
+        });
+    } 
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

@@ -1,1 +1,2 @@
 ./gradlew genIntellijRuns
+./gradlew runClient

@@ -4,6 +4,8 @@ package net.justachips.tutorialchips.event;
 import com.ibm.icu.impl.ICUService.Key;
 
 import net.justachips.tutorialchips.TutorialChips;
+import net.justachips.tutorialchips.networking.ModMessages;
+import net.justachips.tutorialchips.networking.packet.ExampleC2SPacket;
 import net.justachips.tutorialchips.util.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -30,6 +32,7 @@ public class ClientEvents {
         public static void onKeyInput(InputEvent.Key event) {
             if(KeyBinding.DRINKING_KEY.consumeClick()) {
                 Minecraft.getInstance().player.sendSystemMessage(Component.literal("a key is pressed hehehe"));
+                ModMessages.sendToServer(new ExampleC2SPacket());
             }
 
         }
