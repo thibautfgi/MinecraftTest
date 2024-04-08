@@ -13,8 +13,7 @@ import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
 
 public class PlayerThirstProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-
-    public static Capability<PlayerThirst> PLAYER_THIRST = CapabilityManager.get(new CapabilityToken<PlayerThirst>() {});
+    public static Capability<PlayerThirst> PLAYER_THIRST = CapabilityManager.get(new CapabilityToken<PlayerThirst>() { });
 
 
     private PlayerThirst thirst = null;
@@ -58,3 +57,4 @@ public class PlayerThirstProvider implements ICapabilityProvider, INBTSerializab
 
 
 }
+

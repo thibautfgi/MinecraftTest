@@ -13,12 +13,12 @@ public class PlayerThirst {
     }
     
     public void addThirst(int add) { // add de la soif
-        this.thirst += Math.min(thirst + add, MAX_THIRST); // permet de bloque l'add de la soif a la valeur de la max_thirst
+        this.thirst = Math.min(thirst + add, MAX_THIRST); // permet de bloque l'add de la soif a la valeur de la max_thirst
     }
 
 
     public void subThirst(int minus) { //enleve de la soif
-        this.thirst += Math.max(thirst - minus, MIN_THIRST); // permet de bloque l'add de la soif a la valeur de la min_thirst
+        this.thirst = Math.max(thirst - minus, MIN_THIRST); // permet de bloque l'add de la soif a la valeur de la min_thirst
     }
 
     public void copyFrom(PlayerThirst source) {

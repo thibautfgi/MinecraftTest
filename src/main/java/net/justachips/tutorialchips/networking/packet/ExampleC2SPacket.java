@@ -39,7 +39,10 @@ public class ExampleC2SPacket {
             // HERE WE ARE ON THE SERVER!
             ServerPlayer player = context.getSender();
             if (player != null) { // Make sure player is not null
+
+
                 ServerLevel level = player.serverLevel();
+
                 if (level != null) { // Make sure level is not null
 
                 BlockPos position = player.blockPosition();
