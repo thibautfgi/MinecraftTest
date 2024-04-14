@@ -5,6 +5,7 @@ import com.google.common.graph.Network;
 import net.justachips.tutorialchips.TutorialChips;
 import net.justachips.tutorialchips.networking.packet.DrinkWaterC2SPacket;
 import net.justachips.tutorialchips.networking.packet.ExampleC2SPacket;
+import net.justachips.tutorialchips.networking.packet.ThirstDataSyncC2SPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -43,6 +44,16 @@ public class ModMessages {
             .encoder(ExampleC2SPacket::toBytes)
             .consumerMainThread(ExampleC2SPacket::handle)
             .add();
+
+
+            net.messageBuilder(ThirstDataSyncC2SPacket.class,id(), NetworkDirection.PLAY_TO_CLIENT)
+            .decoder(ThirstDataSyncC2SPacket::new)
+            .encoder(ThirstDataSyncC2SPacket::toBytes)
+            .consumerMainThread(ThirstDataSyncC2SPacket::handle)
+            .add();
+
+
+
 
     }
 

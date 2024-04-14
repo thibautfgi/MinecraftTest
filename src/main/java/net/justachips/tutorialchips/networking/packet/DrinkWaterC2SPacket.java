@@ -1,5 +1,6 @@
 package net.justachips.tutorialchips.networking.packet;
 
+import net.justachips.tutorialchips.networking.ModMessages;
 import net.justachips.tutorialchips.thirst.PlayerThirstProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.multiplayer.chat.LoggedChatMessage.Player;
@@ -61,7 +62,7 @@ public class DrinkWaterC2SPacket {
 
             if(hasWaterAroundThem(player, level, 2)) {
                 // notify the player water as been drunk,
-                player.sendSystemMessage(Component.translatable(MESSAGE_DRINK_WATER).withStyle(ChatFormatting.DARK_AQUA));
+                // player.sendSystemMessage(Component.translatable(MESSAGE_DRINK_WATER).withStyle(ChatFormatting.DARK_AQUA));
                
             // play drink sound
                 level.playSound(null, player.getOnPos(), SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS,
@@ -70,9 +71,9 @@ public class DrinkWaterC2SPacket {
                 player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
                 
                     thirst.addThirst(1);
-                    player.sendSystemMessage(Component.literal("current thirst" + thirst.getThirst())
-                    .withStyle(ChatFormatting.DARK_AQUA));
-               
+                    //  player.sendSystemMessage(Component.literal("current thirst" + thirst.getThirst())
+                    // .withStyle(ChatFormatting.DARK_AQUA));
+                    ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player);
                 });
 
 
@@ -85,14 +86,18 @@ public class DrinkWaterC2SPacket {
             } else {
                 //their is no water
                
-                player.sendSystemMessage(Component.translatable(MESSAGE_NO_WATER).withStyle(ChatFormatting.RED));
+                // player.sendSystemMessage(Component.translatable(MESSAGE_NO_WATER).withStyle(ChatFormatting.RED));
                  //outpout current thirst level
+
+                 level.playSound(null, player.getOnPos(), SoundEvents.VILLAGER_NO, SoundSource.PLAYERS,
+                        0.5F, level.random.nextFloat() * 0.1F + 0.9F);
 
                  player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
                    
 
-                 player.sendSystemMessage(Component.literal("current thirst" + thirst.getThirst())
-                    .withStyle(ChatFormatting.DARK_AQUA));
+                //  player.sendSystemMessage(Component.literal("current thirst" + thirst.getThirst())
+                //     .withStyle(ChatFormatting.DARK_AQUA)); 
+                    ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player);    
                  });
             }
 

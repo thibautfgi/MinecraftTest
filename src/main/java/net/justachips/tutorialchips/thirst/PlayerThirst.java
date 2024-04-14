@@ -4,7 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 
 public class PlayerThirst {
 
-    private int thirst;
+    private int thirst = 10;
     private int MIN_THIRST = 0;
     private int MAX_THIRST = 10;
 
@@ -30,7 +30,9 @@ public class PlayerThirst {
     }
 
     public void loadNBTData(CompoundTag nbt) { //recupere le nbt lier a notre clef
-        thirst = nbt.getInt("thist");
+        thirst = nbt.getInt("thirst");
     }
 
 }
+
+
