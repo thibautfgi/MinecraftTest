@@ -19,6 +19,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -138,31 +139,5 @@ public class ModsEvents {
 
 
 
-    @SubscribeEvent
-    public static void onDrinkWater(PlayerInteractEvent.RightClickItem event) {
-        if (event.getItemStack().getItem() == Items.POTION && event.getItemStack().getTag() != null
-                && event.getItemStack().getTag().contains("Potion", 8) //attrape la fiole d'eau
-                && "minecraft:water".equals(event.getItemStack().getTag().getString("Potion"))) {
-    
-            if (!event.getEntity().level().isClientSide()) {
-                if (event.getEntity() instanceof ServerPlayer player) {
-                    player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
-                        
-                        thirst.addThirst(5);  // Augmenter la soif de 5
-                        player.setItemInHand(event.getHand(), new ItemStack(Items.GLASS_BOTTLE)); // Remplacer la fiole d'eau par une bouteille vide
-    
-                        // Joue un son
-                        player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS, 1.0F, 1.0F);
-    
-                        event.setCancellationResult(InteractionResult.SUCCESS);
-                        event.setCanceled(true);
-    
-                        // LIGNE de sync tres importante
-                        ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player); 
-                    });
-                }
-            }
-        }
-    }
-    
+
 }
