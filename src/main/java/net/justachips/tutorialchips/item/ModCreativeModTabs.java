@@ -42,5 +42,6 @@ public class ModCreativeModTabs {
 
     public static void register(IEventBus eventBus) { //AJOUT DANS LE RUN 
         CREATIVE_MODE_TABS.register(eventBus);
+
     }
 }

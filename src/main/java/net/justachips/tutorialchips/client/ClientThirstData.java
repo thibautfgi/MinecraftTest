@@ -1,6 +1,5 @@
 package net.justachips.tutorialchips.client;
 
-import org.stringtemplate.v4.compiler.CodeGenerator.includeExpr_return;
 
 public class ClientThirstData {
 

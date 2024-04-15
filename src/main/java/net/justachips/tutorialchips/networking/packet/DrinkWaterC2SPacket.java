@@ -60,10 +60,20 @@ public class DrinkWaterC2SPacket {
             ServerPlayer player = context.getSender();
             ServerLevel level = player.serverLevel();
 
-            if(hasWaterAroundThem(player, level, 2)) {
+            if(hasWaterAroundThem(player, level, 2) || hasWaterBucketAroundThem(player, level, 2)) {
                 // notify the player water as been drunk,
                 // player.sendSystemMessage(Component.translatable(MESSAGE_DRINK_WATER).withStyle(ChatFormatting.DARK_AQUA));
                
+
+
+
+
+
+
+
+
+
+
             // play drink sound
                 level.playSound(null, player.getOnPos(), SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS,
                         0.5F, level.random.nextFloat() * 0.1F + 0.9F);
@@ -114,7 +124,10 @@ public class DrinkWaterC2SPacket {
                 .filter(state -> state.is(Blocks.WATER)).toArray().length > 0;
     }
 
-
+    private boolean hasWaterBucketAroundThem(ServerPlayer player, ServerLevel level, int size) {
+            return level.getBlockStates(player.getBoundingBox().inflate(size))
+                    .filter(state -> state.is(Blocks.WATER_CAULDRON)).toArray().length > 0;
+    }
 
 
 }

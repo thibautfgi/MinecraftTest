@@ -8,4 +8,9 @@ public class ModFoods {
     public static FoodProperties YELLOWTHING = new FoodProperties.Builder().nutrition(2).fast()
     .saturationMod(0.2f).effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 200), 0.5f)
     .build();
+
+
+    // public static FoodProperties TEST = new FoodProperties.Builder().nutrition(2).fast()
+    // .saturationMod(0.2f).effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 200), 0.5f)
+    // .build();
 }

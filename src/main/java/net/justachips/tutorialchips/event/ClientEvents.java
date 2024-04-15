@@ -24,12 +24,17 @@ public class ClientEvents {
 @Mod.EventBusSubscriber(modid = TutorialChips.MOD_ID, value = Dist.CLIENT)
 
     public static class ClientForgeEvents {
+
+
+        //gerer par le client, utilise une drinkingkey
     
         @SubscribeEvent
         public static void onKeyRegister(RegisterKeyMappingsEvent event) {
             event.register(KeyBinding.DRINKING_KEY);
 
         }
+
+        //gerer par le client sa key est lier a une action serveur
 
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
@@ -43,6 +48,9 @@ public class ClientEvents {
 
     @Mod.EventBusSubscriber(modid = TutorialChips.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 
+
+    // Ces méthodes définies dans ClientModBusEvents sont appelées
+    //  lorsque les événements spécifiés se produisent cote client
     public static class ClientModBusEvents {
         @SubscribeEvent
         public static void onKeyRegister(RegisterKeyMappingsEvent event) {

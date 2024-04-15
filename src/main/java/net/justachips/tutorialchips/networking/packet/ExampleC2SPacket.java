@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
-
+// DEPRECATED, CETAIS DES TEST
 
 public class ExampleC2SPacket {
     public ExampleC2SPacket() {

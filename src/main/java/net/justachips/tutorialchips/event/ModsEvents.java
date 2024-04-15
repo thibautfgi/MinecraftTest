@@ -7,14 +7,23 @@ import net.justachips.tutorialchips.thirst.PlayerThirst;
 import net.justachips.tutorialchips.thirst.PlayerThirstProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
@@ -39,6 +48,7 @@ public class ModsEvents {
     }
 
     @SubscribeEvent
+    // envoi les données du joueurs mort vers le nouveau joueur clone
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         if(event.isWasDeath()) {
             event.getOriginal().getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(oldStore -> {
@@ -49,11 +59,16 @@ public class ModsEvents {
         }
     }
 
+
+    // donne la capabilities (la soif) a un joueur
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(PlayerThirst.class);
     }
 
+
+
+    // a chaque tick pour le joueurs sur le serv, un event ce produit
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) { // un event 
         if(event.side == LogicalSide.SERVER && event.phase == TickEvent.Phase.START) { 
@@ -76,7 +91,7 @@ public class ModsEvents {
 
 
 
-
+    // qd le joueur rejoint un monde ces donnes son sync
     @SubscribeEvent
     public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
         if(!event.getLevel().isClientSide()) {
@@ -87,6 +102,9 @@ public class ModsEvents {
             }
         }
     }
+
+
+
 
 
 
