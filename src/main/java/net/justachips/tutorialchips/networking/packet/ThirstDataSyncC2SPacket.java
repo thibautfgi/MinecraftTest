@@ -67,6 +67,13 @@ public class ThirstDataSyncC2SPacket {
                 
     }
 
+
+    private boolean hasDesertAroundThem(ServerPlayer player, ServerLevel level, int size) {
+        return level.getBlockStates(player.getBoundingBox().inflate(size))
+                .filter(state -> state.is(Blocks.SAND)).toArray().length > 0;
+                
+    }
+
         // detecte si il y a un block d'eau autour du joueur
         private boolean hasWaterBucketAroundThem(ServerPlayer player, ServerLevel level, int size) {
             return level.getBlockStates(player.getBoundingBox().inflate(size))
