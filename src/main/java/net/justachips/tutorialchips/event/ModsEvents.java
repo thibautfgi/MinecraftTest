@@ -17,6 +17,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -39,27 +40,24 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = TutorialChips.MOD_ID)
 
-
-
 public class ModsEvents {
 
-
-
-
     @SubscribeEvent
-    public static void onAttachCapabilitiesEntity(AttachCapabilitiesEvent event) { //attache au joueur le sys de soif
-        if (event.getObject() instanceof ServerPlayer) { 
+    public static void onAttachCapabilitiesEntity(AttachCapabilitiesEvent event) { // attache au joueur le sys de soif
+        if (event.getObject() instanceof ServerPlayer) {
             // si c'est bien un joueur
-            if (!((ICapabilityProvider) event.getObject()).getCapability(PlayerThirstProvider.PLAYER_THIRST).isPresent()) {
-                event.addCapability(new ResourceLocation(TutorialChips.MOD_ID, "player_thirst"), new PlayerThirstProvider());
-            } //lui ajoute le sys de soif
+            if (!((ICapabilityProvider) event.getObject()).getCapability(PlayerThirstProvider.PLAYER_THIRST)
+                    .isPresent()) {
+                event.addCapability(new ResourceLocation(TutorialChips.MOD_ID, "player_thirst"),
+                        new PlayerThirstProvider());
+            } // lui ajoute le sys de soif
         }
     }
 
     @SubscribeEvent
     // envoi les données du joueurs mort vers le nouveau joueur clone
     public static void onPlayerCloned(PlayerEvent.Clone event) {
-        if(event.isWasDeath()) {
+        if (event.isWasDeath()) {
             event.getOriginal().getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(oldStore -> {
                 event.getOriginal().getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(newStore -> {
                     newStore.copyFrom(oldStore);
@@ -68,72 +66,68 @@ public class ModsEvents {
         }
     }
 
-
     // donne la capabilities (la soif) a un joueur
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(PlayerThirst.class);
     }
 
-    
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.side == LogicalSide.SERVER && event.phase == TickEvent.Phase.START) {
 
-            //chope les infos
+            // chope les infos
             ServerPlayer player = (ServerPlayer) event.player;
-            Level level = player.level();  
+            Level level = player.level();
             BlockPos pos = player.blockPosition();
-            Holder<Biome> biome = level.getBiome(pos); 
+            Holder<Biome> biome = level.getBiome(pos);
 
             int tickFrequency = 200; // Default tick frequency (every 200 ticks / 12 seconds)
-            
+
             // Regarde si le joueur est dans le desert
-           if (biome.is(Biomes.DESERT)) {
-            boolean isDaytime = level.isDay() && level.canSeeSky(pos);
-            if (isDaytime) {
-                tickFrequency = 20; // Si en plein jour et exposé au soleil, augmenter la fréquence (toutes les 10 ticks / 0.5 secondes)
-            } else {
-                tickFrequency = 200; // Si pas exposé au soleil, diminuer la fréquence (toutes les 200 ticks / 5 secondes)
+            if (biome.is(Biomes.DESERT)) {
+                boolean isDaytime = level.isDay() && level.canSeeSky(pos); // donc Jour + canseesky
+                if (isDaytime) {
+                    tickFrequency = 20; // Si en plein jour et exposé au soleil, augmenter la fréquence (toutes les 10
+                                        // ticks / 0.5 secondes)
+                } else {
+                    tickFrequency = 200; // Si pas exposé au soleil, diminuer la fréquence (toutes les 200 ticks / 5
+                                         // secondes)
+                }
             }
-        }
-            if (player.tickCount % tickFrequency == 0) { //quand le tick arrive, perd 1 de soif
+            if (player.tickCount % tickFrequency == 0) { // quand le tick arrive, perd 1 de soif
                 player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
-                        thirst.subThirst(1);
-                        ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), ((ServerPlayer ) event.player));    
+                    thirst.subThirst(1);
+                    ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()),
+                            ((ServerPlayer) event.player));
                 });
             }
         }
     }
 
-
     // a chaque tick pour le joueurs sur le serv, un event ce produit, ici degats
     @SubscribeEvent
-    public static void onPlayerTickDamageThirst(TickEvent.PlayerTickEvent event) { // un event 
-        if(event.side == LogicalSide.SERVER && event.phase == TickEvent.Phase.START) { 
+    public static void onPlayerTickDamageThirst(TickEvent.PlayerTickEvent event) { // un event
+        if (event.side == LogicalSide.SERVER && event.phase == TickEvent.Phase.START) {
             ServerPlayer player = (ServerPlayer) event.player;
             player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
 
-                
                 if (thirst.getThirst() == 0) {
                     if (player.tickCount % 100 == 0) { // Vérifie toutes les 100 ticks (5 seconde)
-                        
 
                         player.hurt(player.damageSources().starve(), 1);
                     }
                 }
-               
+
             });
-        } 
+        }
     }
-
-
 
     // qd le joueur rejoint un monde ces donnes son sync
     @SubscribeEvent
     public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
-        if(!event.getLevel().isClientSide()) {
-            if(event.getEntity() instanceof ServerPlayer player) {
+        if (!event.getLevel().isClientSide()) {
+            if (event.getEntity() instanceof ServerPlayer player) {
                 player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
                     ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player);
                 });
@@ -143,14 +137,32 @@ public class ModsEvents {
 
 
 
-    
-    
 
+    @SubscribeEvent
+    public static void onDrinkWater(PlayerInteractEvent.RightClickItem event) {
+        if (event.getItemStack().getItem() == Items.POTION && event.getItemStack().getTag() != null
+                && event.getItemStack().getTag().contains("Potion", 8) //attrape la fiole d'eau
+                && "minecraft:water".equals(event.getItemStack().getTag().getString("Potion"))) {
+    
+            if (!event.getEntity().level().isClientSide()) {
+                if (event.getEntity() instanceof ServerPlayer player) {
+                    player.getCapability(PlayerThirstProvider.PLAYER_THIRST).ifPresent(thirst -> {
+                        
+                        thirst.addThirst(5);  // Augmenter la soif de 5
+                        player.setItemInHand(event.getHand(), new ItemStack(Items.GLASS_BOTTLE)); // Remplacer la fiole d'eau par une bouteille vide
+    
+                        // Joue un son
+                        player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS, 1.0F, 1.0F);
+    
+                        event.setCancellationResult(InteractionResult.SUCCESS);
+                        event.setCanceled(true);
+    
+                        // LIGNE de sync tres importante
+                        ModMessages.sendToPlayer(new ThirstDataSyncC2SPacket(thirst.getThirst()), player); 
+                    });
+                }
+            }
+        }
+    }
+    
 }
-
-
-
-
-
-
-   
