@@ -19,7 +19,7 @@ import net.justachips.tutorialchips.thirst.PlayerThirstProvider;
 public class GourdeItem extends Item {
 
     public GourdeItem(Properties properties) {
-        super(properties.defaultDurability(3));
+        super(properties.defaultDurability(3)); // la durabilite a 3 pts de vie
     }
 
     @Override
